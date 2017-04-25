@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		156C20681EAEA23300D3BC58 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156C20651EAEA23300D3BC58 /* PreviewView.swift */; };
+		156C20691EAEA23300D3BC58 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156C20661EAEA23300D3BC58 /* CameraViewController.swift */; };
+		156C206A1EAEA23300D3BC58 /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156C20671EAEA23300D3BC58 /* PhotoCaptureDelegate.swift */; };
 		15767B211EAE49CE00C2FFDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15767B201EAE49CE00C2FFDF /* AppDelegate.swift */; };
-		15767B231EAE49CE00C2FFDF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15767B221EAE49CE00C2FFDF /* ViewController.swift */; };
+		15767B231EAE49CE00C2FFDF /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15767B221EAE49CE00C2FFDF /* CameraVC.swift */; };
 		15767B261EAE49CE00C2FFDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15767B241EAE49CE00C2FFDF /* Main.storyboard */; };
 		15767B281EAE49CE00C2FFDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15767B271EAE49CE00C2FFDF /* Assets.xcassets */; };
 		15767B2B1EAE49CE00C2FFDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15767B291EAE49CE00C2FFDF /* LaunchScreen.storyboard */; };
+		15F300A51EB00746003C51BA /* CameraProtocolVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F300A41EB00746003C51BA /* CameraProtocolVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		156C20651EAEA23300D3BC58 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		156C20661EAEA23300D3BC58 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		156C20671EAEA23300D3BC58 /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
 		15767B1D1EAE49CE00C2FFDF /* DevChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15767B201EAE49CE00C2FFDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		15767B221EAE49CE00C2FFDF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		15767B221EAE49CE00C2FFDF /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		15767B251EAE49CE00C2FFDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		15767B271EAE49CE00C2FFDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15767B2A1EAE49CE00C2FFDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15767B2C1EAE49CE00C2FFDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15F300A41EB00746003C51BA /* CameraProtocolVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraProtocolVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		156C206B1EAEA46400D3BC58 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				15767B221EAE49CE00C2FFDF /* CameraVC.swift */,
+				156C20661EAEA23300D3BC58 /* CameraViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		156C206C1EAEA46D00D3BC58 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				156C20651EAEA23300D3BC58 /* PreviewView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		15767B141EAE49CD00C2FFDF = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +79,25 @@
 		15767B1F1EAE49CE00C2FFDF /* DevChat */ = {
 			isa = PBXGroup;
 			children = (
+				15F300A61EB00751003C51BA /* Protocols */,
+				156C206C1EAEA46D00D3BC58 /* View */,
+				156C206B1EAEA46400D3BC58 /* Controller */,
 				15767B201EAE49CE00C2FFDF /* AppDelegate.swift */,
-				15767B221EAE49CE00C2FFDF /* ViewController.swift */,
+				156C20671EAEA23300D3BC58 /* PhotoCaptureDelegate.swift */,
 				15767B241EAE49CE00C2FFDF /* Main.storyboard */,
 				15767B271EAE49CE00C2FFDF /* Assets.xcassets */,
 				15767B291EAE49CE00C2FFDF /* LaunchScreen.storyboard */,
 				15767B2C1EAE49CE00C2FFDF /* Info.plist */,
 			);
 			path = DevChat;
+			sourceTree = "<group>";
+		};
+		15F300A61EB00751003C51BA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				15F300A41EB00746003C51BA /* CameraProtocolVC.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15767B231EAE49CE00C2FFDF /* ViewController.swift in Sources */,
+				15767B231EAE49CE00C2FFDF /* CameraVC.swift in Sources */,
+				156C20691EAEA23300D3BC58 /* CameraViewController.swift in Sources */,
 				15767B211EAE49CE00C2FFDF /* AppDelegate.swift in Sources */,
+				156C206A1EAEA23300D3BC58 /* PhotoCaptureDelegate.swift in Sources */,
+				15F300A51EB00746003C51BA /* CameraProtocolVC.swift in Sources */,
+				156C20681EAEA23300D3BC58 /* PreviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +342,7 @@
 				15767B311EAE49CE00C2FFDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

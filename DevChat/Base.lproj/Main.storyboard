@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--CameraVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CameraVC" customModule="DevChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,63 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAf-Uw-n8C" customClass="PreviewView" customModule="DevChat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSa-x0-YhZ">
+                                        <rect key="frame" x="147" y="589" width="80" height="63"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="63" id="VqI-g7-aD3"/>
+                                            <constraint firstAttribute="width" constant="80" id="aFE-TT-3ac"/>
+                                        </constraints>
+                                        <state key="normal" image="createsnap_btn"/>
+                                        <connections>
+                                            <action selector="recordBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v7b-LR-U5x"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eos-Hr-XmV">
+                                        <rect key="frame" x="320" y="25" width="47" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="49" id="bIt-yT-2pB"/>
+                                            <constraint firstAttribute="width" constant="47" id="kvc-2D-3sG"/>
+                                        </constraints>
+                                        <state key="normal" image="camera_icon_snap"/>
+                                        <connections>
+                                            <action selector="changeCameraBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VqK-Bf-Cc4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="mSa-x0-YhZ" firstAttribute="centerX" secondItem="qAf-Uw-n8C" secondAttribute="centerX" id="48V-B7-wIV"/>
+                                    <constraint firstAttribute="trailing" secondItem="eos-Hr-XmV" secondAttribute="trailing" constant="8" id="4GY-6Z-rO6"/>
+                                    <constraint firstAttribute="bottom" secondItem="mSa-x0-YhZ" secondAttribute="bottom" constant="15" id="PIL-hF-eWv"/>
+                                    <constraint firstItem="eos-Hr-XmV" firstAttribute="top" secondItem="qAf-Uw-n8C" secondAttribute="top" constant="25" id="eTJ-oQ-lmo"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qAf-Uw-n8C" secondAttribute="trailing" id="AFW-2H-pYC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qAf-Uw-n8C" secondAttribute="bottom" id="Oby-fA-gcc"/>
+                            <constraint firstItem="qAf-Uw-n8C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RKA-GV-D4c"/>
+                            <constraint firstItem="qAf-Uw-n8C" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="x7J-Wp-pNA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraBtn" destination="eos-Hr-XmV" id="poh-fe-QLo"/>
+                        <outlet property="previewView" destination="qAf-Uw-n8C" id="WOg-6x-t2f"/>
+                        <outlet property="recordBtn" destination="mSa-x0-YhZ" id="sRq-kt-AlA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="36" y="38.23088455772114"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera_icon_snap" width="29" height="24"/>
+        <image name="createsnap_btn" width="30" height="30"/>
+    </resources>
 </document>
