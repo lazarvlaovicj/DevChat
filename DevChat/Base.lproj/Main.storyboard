@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--CameraVC-->
+        <!--Camera View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CameraVC" customModule="DevChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CameraViewController" customModule="DevChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -24,35 +24,35 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAf-Uw-n8C" customClass="PreviewView" customModule="DevChat" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSa-x0-YhZ">
-                                        <rect key="frame" x="147" y="589" width="80" height="63"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="63" id="VqI-g7-aD3"/>
-                                            <constraint firstAttribute="width" constant="80" id="aFE-TT-3ac"/>
-                                        </constraints>
-                                        <state key="normal" image="createsnap_btn"/>
-                                        <connections>
-                                            <action selector="recordBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v7b-LR-U5x"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eos-Hr-XmV">
-                                        <rect key="frame" x="320" y="25" width="47" height="49"/>
+                                        <rect key="frame" x="318" y="27" width="47" height="49"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="49" id="bIt-yT-2pB"/>
-                                            <constraint firstAttribute="width" constant="47" id="kvc-2D-3sG"/>
+                                            <constraint firstAttribute="height" constant="49" id="dnZ-tK-yde"/>
+                                            <constraint firstAttribute="width" constant="47" id="fHg-9c-mRv"/>
                                         </constraints>
                                         <state key="normal" image="camera_icon_snap"/>
                                         <connections>
-                                            <action selector="changeCameraBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VqK-Bf-Cc4"/>
+                                            <action selector="changeCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YVM-Sr-XD8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSa-x0-YhZ">
+                                        <rect key="frame" x="147" y="598" width="80" height="63"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="63" id="MOV-nR-TyA"/>
+                                            <constraint firstAttribute="width" constant="80" id="axD-6V-1KU"/>
+                                        </constraints>
+                                        <state key="normal" image="createsnap_btn"/>
+                                        <connections>
+                                            <action selector="toggleMovieRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GoI-zS-Fcf"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="mSa-x0-YhZ" firstAttribute="centerX" secondItem="qAf-Uw-n8C" secondAttribute="centerX" id="48V-B7-wIV"/>
-                                    <constraint firstAttribute="trailing" secondItem="eos-Hr-XmV" secondAttribute="trailing" constant="8" id="4GY-6Z-rO6"/>
-                                    <constraint firstAttribute="bottom" secondItem="mSa-x0-YhZ" secondAttribute="bottom" constant="15" id="PIL-hF-eWv"/>
-                                    <constraint firstItem="eos-Hr-XmV" firstAttribute="top" secondItem="qAf-Uw-n8C" secondAttribute="top" constant="25" id="eTJ-oQ-lmo"/>
+                                    <constraint firstItem="eos-Hr-XmV" firstAttribute="top" secondItem="qAf-Uw-n8C" secondAttribute="top" constant="27" id="D5O-rS-Tcb"/>
+                                    <constraint firstAttribute="trailing" secondItem="eos-Hr-XmV" secondAttribute="trailing" constant="10" id="ZfI-1e-lcO"/>
+                                    <constraint firstAttribute="bottom" secondItem="mSa-x0-YhZ" secondAttribute="bottom" constant="6" id="fw7-JY-VRR"/>
+                                    <constraint firstItem="mSa-x0-YhZ" firstAttribute="centerX" secondItem="qAf-Uw-n8C" secondAttribute="centerX" id="mbQ-8E-ahZ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -65,9 +65,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cameraBtn" destination="eos-Hr-XmV" id="poh-fe-QLo"/>
-                        <outlet property="previewView" destination="qAf-Uw-n8C" id="WOg-6x-t2f"/>
-                        <outlet property="recordBtn" destination="mSa-x0-YhZ" id="sRq-kt-AlA"/>
+                        <outlet property="cameraButton" destination="eos-Hr-XmV" id="gZL-RR-Ove"/>
+                        <outlet property="previewView" destination="qAf-Uw-n8C" id="d8b-ik-MR4"/>
+                        <outlet property="recordButton" destination="mSa-x0-YhZ" id="5Xk-AR-cyd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

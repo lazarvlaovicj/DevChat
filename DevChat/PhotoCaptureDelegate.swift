@@ -59,7 +59,7 @@ class PhotoCaptureDelegate: NSObject, AVCapturePhotoCaptureDelegate {
             photoData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer)
 		}
 		else {
-			print("Error capturing photo: \(error)")
+			print("Error capturing photo: \(String(describing: error))")
 			return
 		}
 	}
@@ -70,7 +70,7 @@ class PhotoCaptureDelegate: NSObject, AVCapturePhotoCaptureDelegate {
 	
     func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingLivePhotoToMovieFileAt outputFileURL: URL, duration: CMTime, photoDisplay photoDisplayTime: CMTime, resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
 		if let _ = error {
-			print("Error processing live photo companion movie: \(error)")
+			print("Error processing live photo companion movie: \(String(describing: error))")
 			return
 		}
 		
