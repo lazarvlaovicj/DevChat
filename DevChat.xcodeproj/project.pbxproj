@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		154E4A7C1EB3C9A200A6C6CC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E4A7B1EB3C9A200A6C6CC /* LoginVC.swift */; };
+		154E4A7F1EB3DA0800A6C6CC /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E4A7E1EB3DA0800A6C6CC /* AuthServices.swift */; };
 		156C20681EAEA23300D3BC58 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156C20651EAEA23300D3BC58 /* PreviewView.swift */; };
 		156C206A1EAEA23300D3BC58 /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156C20671EAEA23300D3BC58 /* PhotoCaptureDelegate.swift */; };
 		15767B211EAE49CE00C2FFDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15767B201EAE49CE00C2FFDF /* AppDelegate.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		154E4A7B1EB3C9A200A6C6CC /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		154E4A7E1EB3DA0800A6C6CC /* AuthServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		156C20651EAEA23300D3BC58 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		156C20671EAEA23300D3BC58 /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
 		15767B1D1EAE49CE00C2FFDF /* DevChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,10 +54,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		154E4A7D1EB3D9F900A6C6CC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				154E4A7E1EB3DA0800A6C6CC /* AuthServices.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		156C206B1EAEA46400D3BC58 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				15D1F5F71EB393EF001201B7 /* CameraViewController.swift */,
+				154E4A7B1EB3C9A200A6C6CC /* LoginVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -89,6 +102,7 @@
 		15767B1F1EAE49CE00C2FFDF /* DevChat */ = {
 			isa = PBXGroup;
 			children = (
+				154E4A7D1EB3D9F900A6C6CC /* Services */,
 				156C206C1EAEA46D00D3BC58 /* View */,
 				156C206B1EAEA46400D3BC58 /* Controller */,
 				15767B201EAE49CE00C2FFDF /* AppDelegate.swift */,
@@ -246,6 +260,8 @@
 			files = (
 				15E2EC571EB2A125003E0300 /* CustomField.swift in Sources */,
 				15767B211EAE49CE00C2FFDF /* AppDelegate.swift in Sources */,
+				154E4A7C1EB3C9A200A6C6CC /* LoginVC.swift in Sources */,
+				154E4A7F1EB3DA0800A6C6CC /* AuthServices.swift in Sources */,
 				15E2EC591EB2A7DE003E0300 /* CustomButton.swift in Sources */,
 				156C206A1EAEA23300D3BC58 /* PhotoCaptureDelegate.swift in Sources */,
 				156C20681EAEA23300D3BC58 /* PreviewView.swift in Sources */,

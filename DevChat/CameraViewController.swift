@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Photos
+import FirebaseAuth
 
 class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
 	// MARK: View Controller Life Cycle
@@ -77,6 +78,14 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
 			self.configureSession()
 		}
 	}
+    
+    override func viewDidAppear(_ animated: Bool) {
+        guard FIRAuth.auth()?.currentUser != nil else {
+            performSegue(withIdentifier: "toLoginVC", sender: nil)
+            print("Log In appeared")
+            return
+        }
+    }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
@@ -553,27 +562,27 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
 						number of in progress Live Photo captures to ensure that the
 						Live Photo label stays visible during these captures.
 					*/
-					self.sessionQueue.async { [unowned self] in
-						if capturing {
-//							self.inProgressLivePhotoCapturesCount += 1
-						}
-						else {
-//							self.inProgressLivePhotoCapturesCount -= 1
-						}
-						
-//						let inProgressLivePhotoCapturesCount = self.inProgressLivePhotoCapturesCount
-//						DispatchQueue.main.async { [unowned self] in
-//							if inProgressLivePhotoCapturesCount > 0 {
-////								self.capturingLivePhotoLabel.isHidden = false
-//							}
-//							else if inProgressLivePhotoCapturesCount == 0 {
-////								self.capturingLivePhotoLabel.isHidden = true
-//							}
-//							else {
-//								print("Error: In progress live photo capture count is less than 0");
-//							}
+//					self.sessionQueue.async { [unowned self] in
+//						if capturing {
+////							self.inProgressLivePhotoCapturesCount += 1
 //						}
-					}
+//						else {
+////							self.inProgressLivePhotoCapturesCount -= 1
+//						}
+//						
+////						let inProgressLivePhotoCapturesCount = self.inProgressLivePhotoCapturesCount
+////						DispatchQueue.main.async { [unowned self] in
+////							if inProgressLivePhotoCapturesCount > 0 {
+//////								self.capturingLivePhotoLabel.isHidden = false
+////							}
+////							else if inProgressLivePhotoCapturesCount == 0 {
+//////								self.capturingLivePhotoLabel.isHidden = true
+////							}
+////							else {
+////								print("Error: In progress live photo capture count is less than 0");
+////							}
+////						}
+//					}
 				}, completed: { [unowned self] photoCaptureDelegate in
 					// When the capture is complete, remove a reference to the photo capture delegate so it can be deallocated.
 					self.sessionQueue.async { [unowned self] in
