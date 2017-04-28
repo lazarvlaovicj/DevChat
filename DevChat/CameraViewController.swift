@@ -23,6 +23,10 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
 		photoButton.isEnabled = false
 //		livePhotoModeButton.isEnabled = false
 		captureModeControl.isEnabled = false
+        
+        //setup label and tap to resume
+        cameraUnavailableLabel.isHidden = true
+        resumeButton.isHidden = true
 		
 		// Set up the video preview view.
 		previewView.session = session
@@ -185,7 +189,7 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
 			var defaultVideoDevice: AVCaptureDevice?
 			
 			// Choose the back dual camera if available, otherwise default to a wide angle camera.
-			if let dualCameraDevice = AVCaptureDevice.defaultDevice(withDeviceType: .builtInDuoCamera, mediaType: AVMediaTypeVideo, position: .back) {
+			if let dualCameraDevice = AVCaptureDevice.defaultDevice(withDeviceType: AVCaptureDeviceType.builtInDualCamera, mediaType: AVMediaTypeVideo, position: .back) {
 				defaultVideoDevice = dualCameraDevice
 			}
 			else if let backCameraDevice = AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .back) {
@@ -375,7 +379,7 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
 	
 	@IBOutlet private weak var cameraUnavailableLabel: UILabel!
 	
-	private let videoDeviceDiscoverySession = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInDuoCamera], mediaType: AVMediaTypeVideo, position: .unspecified)!
+	private let videoDeviceDiscoverySession = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera, AVCaptureDeviceType.builtInDualCamera], mediaType: AVMediaTypeVideo, position: .unspecified)!
 	
 	@IBAction private func changeCamera(_ cameraButton: UIButton) {
 		cameraButton.isEnabled = false
@@ -394,7 +398,8 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
 			switch currentPosition {
 				case .unspecified, .front:
 					preferredPosition = .back
-					preferredDeviceType = .builtInDuoCamera
+                    preferredDeviceType = AVCaptureDeviceType.builtInDualCamera
+//					preferredDeviceType = .builtInDuoCamera
 				
 				case .back:
 					preferredPosition = .front
@@ -574,7 +579,7 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
 					self.sessionQueue.async { [unowned self] in
 						self.inProgressPhotoCaptureDelegates[photoCaptureDelegate.requestedPhotoSettings.uniqueID] = nil
 					}
-				}
+                }
 			)
 			
 			/*
@@ -756,7 +761,7 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
 			self.cameraButton.isEnabled = self.videoDeviceDiscoverySession.uniqueDevicePositionsCount() > 1
 			self.recordButton.isEnabled = true
 			self.captureModeControl.isEnabled = true
-			self.recordButton.setTitle(NSLocalizedString("Record", comment: "Recording button record title"), for: [])
+			self.recordButton.setTitle(NSLocalizedString("", comment: "Recording button record title"), for: [])
 		}
 	}
 	
