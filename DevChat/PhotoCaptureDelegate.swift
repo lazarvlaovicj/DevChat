@@ -8,6 +8,7 @@
 
 import AVFoundation
 import Photos
+import UIKit
 
 class PhotoCaptureDelegate: NSObject, AVCapturePhotoCaptureDelegate {
 	private(set) var requestedPhotoSettings: AVCapturePhotoSettings
@@ -78,6 +79,9 @@ class PhotoCaptureDelegate: NSObject, AVCapturePhotoCaptureDelegate {
 	}
 	
     func capture(_ captureOutput: AVCapturePhotoOutput, didFinishCaptureForResolvedSettings resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
+        
+        
+        
 		if let error = error {
 			print("Error capturing photo: \(error)")
 			didFinish()
@@ -89,6 +93,9 @@ class PhotoCaptureDelegate: NSObject, AVCapturePhotoCaptureDelegate {
 			didFinish()
 			return
 		}
+        
+        
+        
 		
 		PHPhotoLibrary.requestAuthorization { [unowned self] status in
 			if status == .authorized {

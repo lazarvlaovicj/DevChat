@@ -13,6 +13,8 @@ import FirebaseAuth
 
 class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
 	// MARK: View Controller Life Cycle
+    
+    
 	
     override func viewDidLoad() {
 		super.viewDidLoad()
@@ -145,6 +147,15 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
 		return .all
 	}
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? UsersVC {
+            if let sender = sender as? Dictionary<String, URL> {
+                let url = sender["videoURL"]
+                dest.videoURL = url!
+            }
+        }
+    }
 	
 	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 		super.viewWillTransition(to: size, with: coordinator)
@@ -739,26 +750,30 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
 		
 		if success {
 			// Check authorization status.
-			PHPhotoLibrary.requestAuthorization { status in
-				if status == .authorized {
-					// Save the movie file to the photo library and cleanup.
-					PHPhotoLibrary.shared().performChanges({
-							let options = PHAssetResourceCreationOptions()
-							options.shouldMoveFile = true
-							let creationRequest = PHAssetCreationRequest.forAsset()
-							creationRequest.addResource(with: .video, fileURL: outputFileURL, options: options)
-						}, completionHandler: { success, error in
-							if !success {
-								print("Could not save movie to photo library: \(String(describing: error))")
-							}
-							cleanup()
-						}
-					)
-				}
-				else {
-					cleanup()
-				}
-			}
+            
+            performSegue(withIdentifier: "toUserVC", sender: ["videoURL":outputFileURL])
+            
+            
+//			PHPhotoLibrary.requestAuthorization { status in
+//				if status == .authorized {
+//					// Save the movie file to the photo library and cleanup.
+//					PHPhotoLibrary.shared().performChanges({
+//							let options = PHAssetResourceCreationOptions()
+//							options.shouldMoveFile = true
+//							let creationRequest = PHAssetCreationRequest.forAsset()
+//							creationRequest.addResource(with: .video, fileURL: outputFileURL, options: options)
+//						}, completionHandler: { success, error in
+//							if !success {
+//								print("Could not save movie to photo library: \(String(describing: error))")
+//							}
+//							cleanup()
+//						}
+//					)
+//				}
+//				else {
+//					cleanup()
+//				}
+//			}
 		}
 		else {
 			cleanup()

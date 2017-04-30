@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NhB-Zg-Jfj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -136,6 +136,7 @@
                         <outlet property="recordButton" destination="mSa-x0-YhZ" id="5Xk-AR-cyd"/>
                         <outlet property="resumeButton" destination="T8x-4E-y2e" id="3J4-uP-adC"/>
                         <segue destination="LEs-eA-D1Q" kind="show" identifier="toLoginVC" id="LTG-JD-aax"/>
+                        <segue destination="NhB-Zg-Jfj" kind="show" identifier="toUserVC" id="T6j-rX-D3d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -303,7 +304,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tpl-7c-7EQ">
-                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="50" id="3eO-rV-Twh" customClass="UserCell" customModule="DevChat" customModuleProvider="target">
@@ -336,26 +337,58 @@
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="10x-rt-I6p">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="suV-YG-mMj"/>
+                                    <constraint firstAttribute="height" constant="44" id="M3v-Qr-Bhs"/>
                                 </constraints>
                                 <color key="barTintColor" red="0.71106153726577759" green="0.23387709259986877" blue="0.10790235549211502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4SB-Id-KTb">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCn-J3-EMk">
+                                        <rect key="frame" x="323" y="10" width="24" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="send_snap"/>
+                                        <connections>
+                                            <action selector="sendBtnPressedWithSender:" destination="NhB-Zg-Jfj" eventType="touchUpInside" id="DbB-6B-chB"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tym-77-ujF">
+                                        <rect key="frame" x="177" y="12" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="n38-ti-Dpa"/>
+                                            <constraint firstAttribute="width" constant="20" id="sz4-fF-6E4"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="7sp-kb-2hI"/>
+                                    <constraint firstItem="tym-77-ujF" firstAttribute="top" secondItem="4SB-Id-KTb" secondAttribute="top" constant="12" id="7wt-Je-FQn"/>
+                                    <constraint firstItem="tym-77-ujF" firstAttribute="centerY" secondItem="4SB-Id-KTb" secondAttribute="centerY" id="DEl-xX-4cT"/>
+                                    <constraint firstItem="tym-77-ujF" firstAttribute="centerX" secondItem="4SB-Id-KTb" secondAttribute="centerX" id="F33-rS-4f3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="tpl-7c-7EQ" secondAttribute="trailing" id="01W-Ka-eqq"/>
-                            <constraint firstAttribute="trailing" secondItem="10x-rt-I6p" secondAttribute="trailing" id="LEP-hz-S5B"/>
-                            <constraint firstItem="sef-Jb-gJz" firstAttribute="top" secondItem="tpl-7c-7EQ" secondAttribute="bottom" id="OcD-dQ-Dq8"/>
-                            <constraint firstItem="10x-rt-I6p" firstAttribute="top" secondItem="WaV-0X-hHH" secondAttribute="bottom" constant="8" id="rZT-wa-IRD"/>
-                            <constraint firstItem="tpl-7c-7EQ" firstAttribute="top" secondItem="10x-rt-I6p" secondAttribute="bottom" id="yMd-Ao-akH"/>
-                            <constraint firstItem="tpl-7c-7EQ" firstAttribute="leading" secondItem="eJG-95-6Vb" secondAttribute="leading" id="yz1-QZ-FGM"/>
-                            <constraint firstItem="10x-rt-I6p" firstAttribute="leading" secondItem="eJG-95-6Vb" secondAttribute="leading" id="zJG-GN-7It"/>
+                            <constraint firstItem="tpl-7c-7EQ" firstAttribute="top" secondItem="10x-rt-I6p" secondAttribute="bottom" id="8Ft-Oq-oao"/>
+                            <constraint firstItem="10x-rt-I6p" firstAttribute="leading" secondItem="eJG-95-6Vb" secondAttribute="leading" id="9iP-O4-8rQ"/>
+                            <constraint firstItem="4SB-Id-KTb" firstAttribute="top" secondItem="WaV-0X-hHH" secondAttribute="bottom" id="H1t-Jo-jVj"/>
+                            <constraint firstAttribute="trailing" secondItem="tpl-7c-7EQ" secondAttribute="trailing" id="Qo5-di-ctu"/>
+                            <constraint firstAttribute="trailing" secondItem="10x-rt-I6p" secondAttribute="trailing" id="RPD-4e-5CO"/>
+                            <constraint firstItem="sef-Jb-gJz" firstAttribute="top" secondItem="tpl-7c-7EQ" secondAttribute="bottom" id="bR7-Xz-eCN"/>
+                            <constraint firstAttribute="trailing" secondItem="4SB-Id-KTb" secondAttribute="trailing" id="c5b-1J-AfG"/>
+                            <constraint firstItem="10x-rt-I6p" firstAttribute="top" secondItem="4SB-Id-KTb" secondAttribute="bottom" id="e1B-Ku-ink"/>
+                            <constraint firstItem="tpl-7c-7EQ" firstAttribute="leading" secondItem="eJG-95-6Vb" secondAttribute="leading" id="nSQ-J5-2Ac"/>
+                            <constraint firstItem="4SB-Id-KTb" firstAttribute="leading" secondItem="eJG-95-6Vb" secondAttribute="leading" id="xtm-Pt-e6t"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="sendButton" destination="hCn-J3-EMk" id="jDg-EZ-Oy1"/>
+                        <outlet property="spinner" destination="tym-77-ujF" id="UoY-M3-gfj"/>
                         <outlet property="tableView" destination="tpl-7c-7EQ" id="D1d-FE-pgc"/>
                     </connections>
                 </viewController>
@@ -369,5 +402,6 @@
         <image name="createsnap_btn" width="30" height="30"/>
         <image name="ghost1600-1" width="1600" height="1600"/>
         <image name="programmers2" width="650" height="433"/>
+        <image name="send_snap" width="24" height="23"/>
     </resources>
 </document>
